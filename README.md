@@ -1,5 +1,5 @@
 # Twitter Bootstrap for Rails 3
-Make Twitter Bootstrap (http://twitter.github.com/bootstrap) into Rails Engine.
+Make Twitter Bootstrap (http://twitter.github.com/bootstrap) into Rails Engine. Bootstrap-datepicker (https://github.com/eternicode/bootstrap-datepicker) is also included.
 
 ## Rails 3.1 or later
 Include Gemfile,
