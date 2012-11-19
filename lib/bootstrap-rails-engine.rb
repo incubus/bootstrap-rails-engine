@@ -4,10 +4,10 @@ module BootstrapRailsEngine
 
     CDNS = {
       :bootstrap_js => {
-        :default => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js"
+        :default => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"
       },
       :bootstrap_css => {
-        :default => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap.min.css"
+        :default => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css"
       },
     }
 
