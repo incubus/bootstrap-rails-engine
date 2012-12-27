@@ -21,8 +21,11 @@ module BootstrapRailsEngine
 
     # to be used with bootstrap-rails-engine gem
     def bootstrap_javascript_include_tag(name, options = {})
+      bootstrap_j = 'bootstrap/bootstrap'
+      bootstrap_j = bootstrap_j + '.min' if options[:compressed]
+
       if OFFLINE and !options[:force]
-        return javascript_include_tag('bootstrap/bootstrap')
+        return javascript_include_tag(bootstrap_j)
       else
         # Bootstrap do not offer way to check existing
         [ javascript_include_tag(bootstrap_javascript_url(name, options)),

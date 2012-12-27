@@ -31,6 +31,16 @@ and
 
 then remove corresponding lines in application.js and application.css.
 
+## Options
+
+Set :compressed to use minimized library locally like this:
+
+    = bootstrap_javascript_include_tag :default, :compressed => true
+
+Remember to change the assets name in confign/environments/production.rb:
+
+    config.assets.precompile += %w( bootstrap/bootstrap.min.js)
+
 ## License
 
 Copyright (c) 2012 Yen-Ju Chen
