@@ -2,7 +2,7 @@
 Make [Twitter Bootstrap](http://twitter.github.com/bootstrap) into Rails Engine. [Bootstrap-datepicker](https://github.com/eternicode/bootstrap-datepicker) is also included.
 
 ## Version
-Bootstrap 2.2.2
+Bootstrap 2.3
 Bootstrap-datepicker (2012/12/13)
 
 ## Rails 3.1 or later

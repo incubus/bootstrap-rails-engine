@@ -4,10 +4,10 @@ module BootstrapRailsEngine
 
     CDNS = {
       :bootstrap_js => {
-        :default => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"
+        :default => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3/js/bootstrap.min.js"
       },
       :bootstrap_css => {
-        :default => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"
+        :default => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3/css/bootstrap-combined.min.css"
       },
     }
 
@@ -44,9 +44,7 @@ module BootstrapRailsEngine
     end
   end
 
-
-   class Engine < ::Rails::Engine
-
+  class Engine < ::Rails::Engine
     initializer 'bootstrap-rails-engine.action_view' do |app|
       ActiveSupport.on_load(:action_view) do
         include BootstrapRailsEngine::ActionViewExtensions
