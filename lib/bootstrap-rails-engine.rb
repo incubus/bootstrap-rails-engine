@@ -29,10 +29,11 @@ module BootstrapRailsEngine
       else
         # Bootstrap do not offer way to check existing
         [ javascript_include_tag(bootstrap_javascript_url(name, options)),
+          javascript_tag("typeof $().carousel == 'function' || document.write(unescape('#{javascript_include_tag('bootstrap/bootstrap').gsub('<','%3C')}'))")
         ].join("\n").html_safe
       end
     end
-    
+
     def bootstrap_stylesheet_include_tag(name, options = {})
       if OFFLINE and !options[:force]
         return stylesheet_link_tag('bootstrap/bootstrap')
