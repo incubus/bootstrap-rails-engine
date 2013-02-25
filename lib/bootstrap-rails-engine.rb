@@ -29,7 +29,7 @@ module BootstrapRailsEngine
       else
         # Bootstrap do not offer way to check existing
         [ javascript_include_tag(bootstrap_javascript_url(name, options)),
-          javascript_tag("typeof $().carousel == 'function' || document.write(unescape('#{javascript_include_tag('bootstrap/bootstrap').gsub('<','%3C')}'))")
+          javascript_tag("typeof $().carousel == 'function' || document.write(unescape('#{javascript_include_tag(bootstrap_j).gsub('<','%3C')}'))")
         ].join("\n").html_safe
       end
     end
