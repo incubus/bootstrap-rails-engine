@@ -3,7 +3,7 @@ Make [Twitter Bootstrap](http://twitter.github.com/bootstrap) into Rails Engine.
 
 ## Version
 Bootstrap 2.3
-Bootstrap-datepicker (2012/12/13)
+Bootstrap-datepicker (2013/2/25)
 
 ## Rails 3.1 or later
 Include Gemfile,
