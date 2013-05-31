@@ -37,7 +37,9 @@ Set :compressed to use minimized library locally like this:
 
     = bootstrap_javascript_include_tag :default, :compressed => true
 
-Remember to change the assets name in confign/environments/production.rb:
+Set :local_copy true to use local copy when CDN is not available.
+
+Remember to add assets name in confign/environments/production.rb:
 
     config.assets.precompile += %w( bootstrap/bootstrap.min.js)
 

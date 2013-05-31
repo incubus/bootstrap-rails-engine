@@ -21,16 +21,20 @@ module BootstrapRailsEngine
 
     # to be used with bootstrap-rails-engine gem
     def bootstrap_javascript_include_tag(name, options = {})
+      options.reverse_merge! :local_copy => false
+
       bootstrap_j = 'bootstrap/bootstrap'
       bootstrap_j = bootstrap_j + '.min' if options.delete(:compressed)
 
       if OFFLINE and !options.delete(:force)
+        options.delete(:local_copy) # not used in OFFLINE mode
         return javascript_include_tag(bootstrap_j, options)
       else
-        # Bootstrap do not offer way to check existing
-        [ javascript_include_tag(bootstrap_javascript_url(name)),
-          javascript_tag("typeof $().carousel == 'function' || document.write(unescape('#{javascript_include_tag(bootstrap_j, options).gsub('<','%3C')}'))")
-        ].join("\n").html_safe
+        j = [ javascript_include_tag(bootstrap_javascript_url(name), options) ]
+        if options.delete(:local_copy)
+          j << javascript_tag("typeof $().carousel == 'function' || document.write(unescape('#{javascript_include_tag(bootstrap_j, options).gsub('<','%3C')}'))")
+        end
+        j.join("\n").html_safe
       end
     end
 
