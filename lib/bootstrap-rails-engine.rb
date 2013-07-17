@@ -30,8 +30,9 @@ module BootstrapRailsEngine
         options.delete(:local_copy) # not used in OFFLINE mode
         return javascript_include_tag(bootstrap_j, options)
       else
+        local_copy = options.delete(:local_copy)
         j = [ javascript_include_tag(bootstrap_javascript_url(name), options) ]
-        if options.delete(:local_copy)
+        if local_copy
           j << javascript_tag("typeof $().carousel == 'function' || document.write(unescape('#{javascript_include_tag(bootstrap_j, options).gsub('<','%3C')}'))")
         end
         j.join("\n").html_safe

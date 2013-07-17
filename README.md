@@ -1,4 +1,4 @@
-# Twitter Bootstrap for Rails 3
+# Twitter Bootstrap for Rails 3 & 4
 Make [Twitter Bootstrap](http://twitter.github.com/bootstrap) into Rails Engine. [Bootstrap-datepicker](https://github.com/eternicode/bootstrap-datepicker) is also included.
 
 ## Version
@@ -31,7 +31,7 @@ and
 
 then remove corresponding lines in application.js and application.css.
 
-## Options
+### Options
 
 Set :compressed to use minimized library locally like this:
 
@@ -45,7 +45,7 @@ Remember to add assets name in confign/environments/production.rb:
 
 ## License
 
-Copyright (c) 2012 Yen-Ju Chen
+Copyright (c) 2012-2013 Yen-Ju Chen
 
 MIT License
 
