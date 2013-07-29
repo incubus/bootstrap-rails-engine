@@ -1,13 +1,14 @@
 module BootstrapRailsEngine
   module ActionViewExtensions
+    BOOTSTRAP_VERSION = "2.3.2"
     OFFLINE = (::Rails.env.development? or ::Rails.env.test?)
 
     CDNS = {
       :bootstrap_js => {
-        :default => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"
+        :default => "//netdna.bootstrapcdn.com/twitter-bootstrap/#{BOOTSTRAP_VERSION}/js/bootstrap.min.js"
       },
       :bootstrap_css => {
-        :default => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
+        :default => "//netdna.bootstrapcdn.com/twitter-bootstrap/#{BOOTSTRAP_VERSION}/css/bootstrap-combined.min.css"
       },
     }
 
