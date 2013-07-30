@@ -35,6 +35,8 @@ and
 
 then remove corresponding lines in application.js and application.css.
 
+If you use [font-awesome-rails](https://github.com/bokmann/font-awesome-rails), you can also use fontawesome_stylesheet_inclue_tag for CDN.
+
 ### Options
 
 Set :compressed to use minimized library locally like this:
