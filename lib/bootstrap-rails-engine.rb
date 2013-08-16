@@ -1,6 +1,6 @@
 module BootstrapRailsEngine
   module ActionViewExtensions
-    BOOTSTRAP_VERSION = "3.0.0-rc1"
+    BOOTSTRAP_VERSION = "3.0.0-rc2"
     FONTAWESOME_VERSION = "3.2.1"
     OFFLINE = (::Rails.env.development? or ::Rails.env.test?)
 
@@ -11,9 +11,12 @@ module BootstrapRailsEngine
       :bootstrap_css => {
         :default => "//netdna.bootstrapcdn.com/bootstrap/#{BOOTSTRAP_VERSION}/css/bootstrap.min.css"
       },
+      :bootstrap_glyphicons_css => {
+        :default => "//netdna.bootstrapcdn.com/bootstrap/#{BOOTSTRAP_VERSION}/css/bootstrap-glyphicons.css"
+      },
       :fontawesome_css => {
         :default => "//netdna.bootstrapcdn.com/font-awesome/#{FONTAWESOME_VERSION}/css/font-awesome.min.css"
-      },
+      }
     }
 
     def bootstrap_javascript_url(name)
@@ -22,6 +25,10 @@ module BootstrapRailsEngine
 
     def bootstrap_stylesheet_url(name)
       return CDNS[:bootstrap_css][name]
+    end
+
+    def bootstrap_glyphicons_stylesheet_url(name)
+      return CDNS[:bootstrap_glyphicons_css][name]
     end
 
     def fontawesome_stylesheet_url(name)
@@ -54,6 +61,16 @@ module BootstrapRailsEngine
       else
         # Bootstrap do not offer way to check existing
         [ stylesheet_link_tag(bootstrap_stylesheet_url(name), options),
+        ].join("\n").html_safe
+      end
+    end
+
+    def bootstrap_glyphicons_stylesheet_include_tag(name, options = {})
+      if OFFLINE and !options.delete(:force)
+        return stylesheet_link_tag('bootstrap/bootstrap_glyphicons', options)
+      else
+        # Bootstrap Glyphicons do not offer way to check existing
+        [ stylesheet_link_tag(bootstrap_glyphicons_stylesheet_url(name), options),
         ].join("\n").html_safe
       end
     end

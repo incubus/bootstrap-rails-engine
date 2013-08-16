@@ -2,8 +2,8 @@
 Make [Twitter Bootstrap](http://twitter.github.com/bootstrap) into Rails Engine. [Bootstrap-datepicker](https://github.com/eternicode/bootstrap-datepicker) is also included.
 
 ## Version
-* Bootstrap 3.0.0rc1
-* Bootstrap-datepicker 1.1.3
+* Bootstrap 3.0.0rc2
+* Bootstrap-datepicker 1.2.0rc1
 
 ### Older Versions
 
@@ -48,6 +48,10 @@ Set :local_copy true to use local copy when CDN is not available.
 Remember to add assets name in confign/environments/production.rb:
 
     config.assets.precompile += %w( bootstrap/bootstrap.min.js)
+
+## ISSUES
+
+If you happen to use [bootstrap-sass](https://github.com/thomas-mcdonald/bootstrap-sass), which might be included from rails_admin, it will be used first, thus, you might have problem using stylesheet from this gem. Use CDN instead.
 
 ## License
 
