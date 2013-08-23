@@ -1,6 +1,6 @@
 module BootstrapRailsEngine
   module ActionViewExtensions
-    BOOTSTRAP_VERSION = "3.0.0-rc2"
+    BOOTSTRAP_VERSION = "3.0.0"
     FONTAWESOME_VERSION = "3.2.1"
     OFFLINE = (::Rails.env.development? or ::Rails.env.test?)
 
@@ -11,8 +11,8 @@ module BootstrapRailsEngine
       :bootstrap_css => {
         :default => "//netdna.bootstrapcdn.com/bootstrap/#{BOOTSTRAP_VERSION}/css/bootstrap.min.css"
       },
-      :bootstrap_glyphicons_css => {
-        :default => "//netdna.bootstrapcdn.com/bootstrap/#{BOOTSTRAP_VERSION}/css/bootstrap-glyphicons.css"
+      :bootstrap_theme_css => {
+        :default => "//netdna.bootstrapcdn.com/bootstrap/#{BOOTSTRAP_VERSION}/css/bootstrap-theme.min.css"
       },
       :fontawesome_css => {
         :default => "//netdna.bootstrapcdn.com/font-awesome/#{FONTAWESOME_VERSION}/css/font-awesome.min.css"
@@ -27,8 +27,8 @@ module BootstrapRailsEngine
       return CDNS[:bootstrap_css][name]
     end
 
-    def bootstrap_glyphicons_stylesheet_url(name)
-      return CDNS[:bootstrap_glyphicons_css][name]
+    def bootstrap_theme_stylesheet_url(name)
+      return CDNS[:bootstrap_theme_css][name]
     end
 
     def fontawesome_stylesheet_url(name)
@@ -56,8 +56,11 @@ module BootstrapRailsEngine
     end
 
     def bootstrap_stylesheet_include_tag(name, options = {})
+      bootstrap_c = 'bootstrap/bootstrap'
+      bootstrap_c = bootstrap_c + '.min' if options.delete(:compressed)
+
       if OFFLINE and !options.delete(:force)
-        return stylesheet_link_tag('bootstrap/bootstrap', options)
+        return stylesheet_link_tag(bootstrap_c, options)
       else
         # Bootstrap do not offer way to check existing
         [ stylesheet_link_tag(bootstrap_stylesheet_url(name), options),
@@ -65,12 +68,15 @@ module BootstrapRailsEngine
       end
     end
 
-    def bootstrap_glyphicons_stylesheet_include_tag(name, options = {})
+    def bootstrap_theme_stylesheet_include_tag(name, options = {})
+      bootstrap_t = 'bootstrap/bootstrap-theme'
+      bootstrap_t = bootstrap_t + '.min' if options.delete(:compressed)
+
       if OFFLINE and !options.delete(:force)
-        return stylesheet_link_tag('bootstrap/bootstrap_glyphicons', options)
+        return stylesheet_link_tag(bootstrap_t, options)
       else
-        # Bootstrap Glyphicons do not offer way to check existing
-        [ stylesheet_link_tag(bootstrap_glyphicons_stylesheet_url(name), options),
+        # Bootstrap Theme do not offer way to check existing
+        [ stylesheet_link_tag(bootstrap_theme_stylesheet_url(name), options),
         ].join("\n").html_safe
       end
     end

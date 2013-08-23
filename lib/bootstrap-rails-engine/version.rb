@@ -1,7 +1,7 @@
 module BootstrapRailsEngine
   module Rails
-    VERSION = "3.0.0.2"
-    TWITTER_BOOTSTRAP = "3.0.0rc2"
-    BOOTSTRAP_DATEPICKER = "1.2.0rc1"
+    VERSION = "3.0.0.3"
+    TWITTER_BOOTSTRAP = "3.0.0"
+    BOOTSTRAP_DATEPICKER = "1.2.0"
   end
 end
