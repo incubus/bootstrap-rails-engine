@@ -10,6 +10,7 @@ Gem::Specification.new do |gem|
   gem.homepage    = "https://github.com/yjchen/bootstrap-rails-engine"
   gem.description = %q{Twitter Bootstrap for Rails 3}
   gem.summary     = gem.description
+  gem.license     = 'MIT'
 
   gem.files         = `git ls-files`.split("\n")
   gem.require_paths = ["lib"]
