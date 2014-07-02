@@ -1,6 +1,6 @@
 module BootstrapRailsEngine
   module ActionViewExtensions
-    BOOTSTRAP_VERSION = "3.1.1"
+    BOOTSTRAP_VERSION = "3.2.0"
     FONTAWESOME_VERSION = "4.0.3"
     OFFLINE = (::Rails.env.development? or ::Rails.env.test?)
 
