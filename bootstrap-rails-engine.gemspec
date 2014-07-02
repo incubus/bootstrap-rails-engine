@@ -15,8 +15,8 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split("\n")
   gem.require_paths = ["lib"]
 
-  gem.signing_key = File.join(Dir.home,'/.gem/trust/gem-private_key.pem')
-  gem.cert_chain = ['gem-public_cert.pem']
+  #gem.signing_key = File.join(Dir.home,'/.gem/trust/gem-private_key.pem')
+  #gem.cert_chain = ['gem-public_cert.pem']
 
   gem.add_dependency "railties", ">= 3.0"
   gem.add_development_dependency "bundler", ">= 1.0"
